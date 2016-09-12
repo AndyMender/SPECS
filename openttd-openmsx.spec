@@ -3,7 +3,7 @@ Version:        0.3.1
 Release:        1%{?dist}
 Summary:        Music replacement files for OpenTTD
 
-License:        GPL 2.0 
+License:        GPLv2+
 URL:            http://www.openttd.org/en/
 Source0:        http://bundles.openttdcoop.org/openmsx/releases/%{version}/openmsx-%{version}-source.tar.gz
 
@@ -33,9 +33,6 @@ mkdir -p %{buildroot}/usr/share/openttd/gm/
 cp -pr %{_sourcedir}/openmsx-%{version}-source/openmsx-%{version}/*.mid %{buildroot}/usr/share/openttd/gm/
 cp -pr %{_sourcedir}/openmsx-%{version}-source/openmsx-%{version}/openmsx.obm %{buildroot}/usr/share/openttd/gm/
 
-
-%clean
-rm -rf %{buildroot}
 
 %files
 %license license.ptxt

@@ -3,8 +3,7 @@ Version:        1.0.5
 Release:        1
 Summary:        encoder/decoder of OpenTTD sound sample catalogues
 
-Group:		Applications/Multimedia
-License:        GPL 2.0
+License:        GPLv2+
 URL:            http://www.openttd.org/en/
 Source0:        http://binaries.openttd.org/extra/%{name}/%{version}/%{name}-%{version}-source.tar.gz
 
@@ -29,7 +28,7 @@ make %{?_smp_mflags}
 
 
 %install
-%make_install   # equivalent to DESTDIR=%{buildroot}
+%make_install
 
 # Moving the binary to /usr/bin/:
 mkdir -p %{buildroot}%{_bindir}/
@@ -44,10 +43,6 @@ cp -p %{buildroot}/usr/local/share/man/man1/%{name}.1.gz %{buildroot}%{_mandir}/
 
 # /usr/local clean-up:
 rm -rf %{buildroot}/usr/local/
-
-
-%clean
-rm -rf %{buildroot}
 
 
 %files

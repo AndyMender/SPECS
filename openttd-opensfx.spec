@@ -37,8 +37,6 @@ cp -pr %{_sourcedir}/opensfx-%{version}-source/docs/* %{_builddir}/opensfx-%{ver
 mkdir -p %{buildroot}/usr/share/openttd/data/
 cp -pr %{_sourcedir}/opensfx-%{version}-source/opensfx.* %{buildroot}/usr/share/openttd/data/
 
-%clean
-rm -rf %{buildroot}
 
 %files
 %license license.txt
