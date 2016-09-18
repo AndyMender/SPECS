@@ -1,13 +1,13 @@
 Name:           mrxvt
 Version:        0.5.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        lightweight, tabbed terminal emulator based on rxvt        
 
 License:        GPLv2+
 URL:            https://github.com/Jehan/%{name}.git
 Source0:        https://github.com/Jehan/%{name}/archive/release-%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
-BuildRequires:  git autoconf automake libtool perl xorg-x11-server-devel
+BuildRequires:  git autoconf automake perl xorg-x11-server-devel
 Requires:       libutempter libXrender libXpm libjpeg-turbo libpng
 
 %description
@@ -20,13 +20,10 @@ etc.
 
 # To suppress creation of a -debuginfo package:
 %global debug_package %{nil}
-%global commit0 0feba85811afb7ccf2955f68f2cea7aeb4b7fad6
-%global gittag0 release-%{version}
-%global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 
 %prep
-%autosetup -n %{name}-%{gittag0}
+%autosetup -n %{name}-release-%{version}
 ./bootstrap.sh
 
 
@@ -46,9 +43,11 @@ make %{?_smp_mflags}
 %{_defaultdocdir}/%{name}/*
 %{_mandir}/man1/%{name}.1.gz
 %{_datadir}/pixmaps/*
+# %{_datadir}/applications/mrxvt.desktop
 %{_sysconfdir}/%{name}/*
 
 
 %changelog
-* Tue Sep 13 2016 Andy Mender <andymenderunix@gmail.com>
-- Initial build
+* Sun Sep 18 2016 Andy Mender <andymenderunix@gmail.com>
+- Release 2
+- Built with fedpkg
