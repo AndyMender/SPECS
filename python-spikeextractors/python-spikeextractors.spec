@@ -37,8 +37,9 @@ and sortings (concatenation, combination, subset extraction).
 Summary:        %{summary}
 %py_provides python3-%{pypi_name}
  
-Requires:       python3dist(numpy)
-Requires:       python3dist(tqdm)
+Requires:  python3dist(h5py)
+Requires:  python3dist(pynwb)
+Requires:  python3dist(scipy)
 %description -n python3-%{pypi_name}
 SpikeExtractors attempts to standardize data retrieval
 rather than data storage. This eliminates the need for shared file formats
