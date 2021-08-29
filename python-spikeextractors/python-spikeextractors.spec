@@ -66,11 +66,7 @@ rm -rf %{pypi_name}.egg-info
 %py3_install
 
 %check
-# one of the tests currently fails
-# issue: https://github.com/SpikeInterface/spikeextractors/issues/577
-%if %{with tests}
 %{__python3} -m unittest discover
-%endif
 
 %files -n python3-%{pypi_name}
 %license LICENSE
@@ -82,6 +78,7 @@ rm -rf %{pypi_name}.egg-info
 * Sun Aug 29 2021 Andy Mender <andymenderunix@fedoraproject.org> - 0.9.7-1
 - Fix egg-info in files section
 - Bump to version 0.9.7
+- Re-enable tests unconditionally
 
 * Sun Mar 07 2021 Andy Mender <andymenderunix@fedoraproject.org> - 0.9.3-1
 - bump to version 0.9.3
