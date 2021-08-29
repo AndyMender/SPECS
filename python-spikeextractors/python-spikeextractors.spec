@@ -13,7 +13,10 @@ BuildArch:      noarch
 
 BuildRequires:  python3-devel
 BuildRequires:  python3dist(setuptools)
+# TODO: Not packaged for Fedora yet
+# BuildRequires:  python3dist(datalab)
 BuildRequires:  python3dist(h5py)
+BuildRequires:  python3dist(joblib)
 BuildRequires:  python3dist(numpy)
 BuildRequires:  python3dist(pynwb)
 BuildRequires:  python3dist(scipy)
@@ -79,6 +82,7 @@ rm -rf %{pypi_name}.egg-info
 - Fix egg-info in files section
 - Bump to version 0.9.7
 - Re-enable tests unconditionally
+- Add additional dependencies
 
 * Sun Mar 07 2021 Andy Mender <andymenderunix@fedoraproject.org> - 0.9.3-1
 - bump to version 0.9.3
