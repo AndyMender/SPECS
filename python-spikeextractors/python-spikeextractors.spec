@@ -2,7 +2,7 @@
 %global pypi_name spikeextractors
 
 Name:           python-%{pypi_name}
-Version:        0.9.3
+Version:        0.9.7
 Release:        1%{?dist}
 Summary:        Extractor for spike sorting pipelines in different file formats
 
@@ -76,9 +76,13 @@ rm -rf %{pypi_name}.egg-info
 %license LICENSE
 %doc README.md
 %{python3_sitelib}/%{pypi_name}
-%{python3_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
+%{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Sun Aug 29 2021 Andy Mender <andymenderunix@fedoraproject.org> - 0.9.7-1
+- Fix egg-info in files section
+- Bump to version 0.9.7
+
 * Sun Mar 07 2021 Andy Mender <andymenderunix@fedoraproject.org> - 0.9.3-1
 - bump to version 0.9.3
 - address review comments
