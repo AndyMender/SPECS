@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.9.7
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Extractor for spike sorting pipelines in different file formats
 
 License:        MIT
@@ -13,12 +13,13 @@ BuildArch:      noarch
 
 BuildRequires:  python3-devel
 BuildRequires:  python3dist(setuptools)
-# TODO: Not packaged for Fedora yet
-# BuildRequires:  python3dist(datalab)
+BuildRequires:  python3dist(datalad)
 BuildRequires:  python3dist(h5py)
 BuildRequires:  python3dist(joblib)
+BuildRequires:  python3dist(nixio)
 BuildRequires:  python3dist(numpy)
 BuildRequires:  python3dist(pynwb)
+BuildRequires:  python3dist(pytest)
 BuildRequires:  python3dist(scipy)
 BuildRequires:  python3dist(tqdm)
 
@@ -69,7 +70,13 @@ rm -rf %{pypi_name}.egg-info
 %py3_install
 
 %check
-%{__python3} -m unittest discover
+# Ignore some test cases we can't run
+%{__python3} -m pytest -v tests \
+  --ignore=tests/test_gin_repo.py \
+  --deselect="tests/test-extractors.py::TestExtractors::()::test_exdir_extractors" \
+  --deselect="tests/test-extractors.py::TestExtractors::()::test_hdsort_extractor" \
+  --deselect="tests/test-extractors.py::TestExtractors::()::test_mearec_extractors" \
+  --deselect="tests/test-extractors.py::TestExtractors::()::test_shybrid_extractors" 
 
 %files -n python3-%{pypi_name}
 %license LICENSE
@@ -78,6 +85,10 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Sun Sep 12 2021 Andy Mender <andymenderunix@fedoraproject.org> - 0.9.7-2
+- Add missing BuildRequires
+- Switch to pytest for running tests
+
 * Sun Aug 29 2021 Andy Mender <andymenderunix@fedoraproject.org> - 0.9.7-1
 - Fix egg-info in files section
 - Bump to version 0.9.7
