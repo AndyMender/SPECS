@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.9.7
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Extractor for spike sorting pipelines in different file formats
 
 License:        MIT
@@ -14,6 +14,7 @@ BuildArch:      noarch
 BuildRequires:  python3-devel
 BuildRequires:  python3dist(setuptools)
 BuildRequires:  python3dist(datalad)
+BuildRequires:  python3dist(exdir)
 BuildRequires:  python3dist(h5py)
 BuildRequires:  python3dist(joblib)
 BuildRequires:  python3dist(nixio)
@@ -85,6 +86,9 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{version}-py%{python3_version}.egg-info
 
 %changelog
+* Sun Sep 19 2021 Andy Mender <andymenderunix@fedoraproject.org> - 0.9.7-3
+- Add exdir to BuildRequires
+
 * Sun Sep 12 2021 Andy Mender <andymenderunix@fedoraproject.org> - 0.9.7-2
 - Add missing BuildRequires
 - Switch to pytest for running tests
