@@ -14,7 +14,6 @@ BuildArch:      noarch
 
 BuildRequires:  python3-devel
 BuildRequires:  python3dist(setuptools)
-
 BuildRequires:  python3dist(joblib)
 BuildRequires:  python3dist(neo)
 BuildRequires:  python3dist(numpy)
@@ -24,11 +23,6 @@ BuildRequires:  python3dist(tqdm)
 
 # TODO: submit missing dependencies
 # BuildRequires:  python3dist(probeinterface)
-
-# BuildRequires:  python3dist(exdir)
-# BuildRequires:  python3dist(h5py)
-# BuildRequires:  python3dist(nixio)
-# BuildRequires:  python3dist(scipy)
 
 %description
 SpikeInterface is a Python framework designed to unify preexisting spike
@@ -47,8 +41,12 @@ Summary:        %{summary}
 %py_provides python3-%{pypi_name}
  
 Requires:  python3dist(h5py)
+Requires:  python3dist(matplotlib)
+Requires:  python3dist(networkx)
 Requires:  python3dist(numpy)
 Requires:  python3dist(pynwb)
+Requires:  python3dist(scikit-learn)
+Requires:  python3dist(scipy)
 
 %description -n python3-%{pypi_name}
 SpikeInterface is a Python framework designed to unify preexisting spike
